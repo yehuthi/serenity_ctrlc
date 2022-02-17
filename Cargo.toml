@@ -1,6 +1,6 @@
 [package]
 name = "serenity_ctrlc"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Yehuthith <yehuthith@gmail.com>"]
 edition = "2021"
 description = "Ctrl+C handler for serenity."
