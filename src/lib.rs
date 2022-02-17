@@ -14,12 +14,13 @@ pub use ctrlc::Error;
 /// This must be called from the bot's Tokio runtime instance.
 pub fn ctrlc(client: &Client) -> Result<(), Error> {
 	let rt = tokio::runtime::Handle::current();
-	let shard_manager = Arc::clone(&client.shard_manager);
+	let shard_manager = Arc::downgrade(&client.shard_manager);
 	ctrlc::set_handler(move || {
-		let shard_manager = Arc::clone(&shard_manager);
-		rt.spawn(async move {
-			shard_manager.lock().await.shutdown_all().await;
-		});
+		if let Some(shard_manager) = shard_manager.upgrade() {
+			rt.spawn(async move {
+				shard_manager.lock().await.shutdown_all().await;
+			});
+		}
 	})
 }
 
