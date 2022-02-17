@@ -1,9 +1,17 @@
+//! Ctrl+C handling for [`serenity`](https://crates.io/crates/serenity) bots.
+
+#![deny(missing_docs)]
+
 use std::sync::Arc;
 
 use serenity::Client;
 
 pub use ctrlc::Error;
 
+/// Register a Ctrl+C handler that will disconnect the bot.
+///
+/// # Warning
+/// This must be called from the bot's Tokio runtime instance.
 pub fn ctrlc(client: &Client) -> Result<(), Error> {
 	let rt = tokio::runtime::Handle::current();
 	let shard_manager = Arc::clone(&client.shard_manager);
@@ -15,7 +23,9 @@ pub fn ctrlc(client: &Client) -> Result<(), Error> {
 	})
 }
 
+/// Provides a [`ctrlc`](ctrlc()) extension method for [`Client`](Client).
 pub trait Ext: private::Sealed + Sized {
+	/// Extension method for [`ctrlc`](ctrlc()).
 	fn ctrlc(self) -> Result<Self, Error>;
 }
 
