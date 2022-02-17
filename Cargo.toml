@@ -7,6 +7,7 @@ description = "Ctrl+C handler for serenity."
 keywords = ["discord", "serenity", "sigkill", "ctrlc", "sigint"]
 categories = ["asynchronous"]
 license = "MIT OR Apache-2.0"
+repository = "https://github.com/yehuthi/serenity_ctrlc"
 
 [dependencies]
 ctrlc = "3.2.1"
