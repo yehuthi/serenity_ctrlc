@@ -1,6 +1,6 @@
 # 0.2.0
 
-- Add custom handlers via [`ctrlc_with`](https://docs.rs/serenity_ctrlc/0.1.2/serenity_ctrlc/fn.ctrlc_with.html).
+- Add custom handlers via [`ctrlc_with`](https://docs.rs/serenity_ctrlc/0.2.0/serenity_ctrlc/fn.ctrlc_with.html).
 
 # 0.1.1
 
