@@ -1,3 +1,7 @@
+# 0.3.0
+
+- Support serenity 0.11.x
+
 # 0.2.0
 
 - Add custom handlers via [`ctrlc_with`](https://docs.rs/serenity_ctrlc/0.2.0/serenity_ctrlc/fn.ctrlc_with.html).
