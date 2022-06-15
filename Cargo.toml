@@ -11,7 +11,7 @@ repository = "https://github.com/yehuthi/serenity_ctrlc"
 
 [dependencies]
 ctrlc = "3.2.1"
-serenity = { version = "0.10.10", default-features = false, features = ["rustls_backend", "gateway", "client", "model"] }
+serenity = { version = ">=0.10.10, <0.12.0", default-features = false, features = ["rustls_backend", "gateway", "client", "model"] }
 tokio = "1"
 
 [[example]]

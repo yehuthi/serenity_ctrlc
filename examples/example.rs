@@ -1,8 +1,9 @@
 use std::time::Duration;
 
 use serenity::{
-	client::{bridge::gateway::GatewayIntents, ClientBuilder, Context, RawEventHandler},
+	client::{ClientBuilder, Context, RawEventHandler},
 	model::event::Event,
+	prelude::GatewayIntents,
 };
 
 use serenity_ctrlc::{Disconnector, Ext};
@@ -23,8 +24,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	let token = std::env::args()
 		.nth(1)
 		.expect("Token not found in first argument.");
-	ClientBuilder::new(token)
-		.intents(GatewayIntents::empty())
+	ClientBuilder::new(token, GatewayIntents::empty())
 		.raw_event_handler(Handler)
 		.await?
 		.ctrlc_with(|dc| async {
